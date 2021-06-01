@@ -1,0 +1,17 @@
+.wrapper {
+    width: 75vw;
+    height: 75vh;
+    overflow: scroll;
+}
+
+.columnHeader {
+    min-width: 250px;
+}
+
+.wideColumnHeader {
+    min-width: 370px;
+}
+
+.narrowColumnHeader {
+    min-width: 100px;
+}
