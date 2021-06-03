@@ -114,9 +114,29 @@ export default function SimpleTable() {
         );
     }
 
+    function clearFilters() {
+        setFilter({
+            country: 'All',
+            total: 0,
+            agricultureNCPlus: 0,
+            agricultureNC: 0,
+            manufacturingAndEnergyProductionNCPlus: 0,
+            manufacturingAndEnergyProductionNC: 0,
+            constructionNCPlus: 0,
+            constructionNC: 0,
+            transportNCPlus: 0,
+            transportNC: 0,
+            wasteManagementNCPlus: 0,
+            wasteManagementNC: 0,
+            otherTertiaryAndHouseholdsNCPlus: 0,
+            otherTertiaryAndHouseholdsNC: 0,
+        });
+    }
+
     return (
-        <div className="container text-center my-3">
-            <h1 className="mb-5">Simple Table</h1>
+        <div className="container text-center">
+            <h1>Simple Table</h1>
+            <div className="d-flex justify-content-end mb-3"><button className="btn btn-light" onClick={clearFilters}>Clear Filters</button></div>
             <div className="container wrapper">
                 <table id="table" className="table table-bordered table-hover">
                     <thead className="table-light">
@@ -145,6 +165,7 @@ export default function SimpleTable() {
                                     id="fcountry"
                                     name="fcountry"
                                     className="form-select"
+                                    value={filter.country}
                                     placeholder="Select..."
                                     onChange={(e) => {
                                         handleCountry(e);
@@ -186,6 +207,7 @@ export default function SimpleTable() {
                                     id="ftotal"
                                     name="ftotal"
                                     className="form-control"
+                                    value={filter.total}
                                     onChange={(e) => {
                                         handleTotal(e);
                                     }}
@@ -197,6 +219,7 @@ export default function SimpleTable() {
                                     id="fagricultureNCPlus"
                                     name="fagricultureNCPlus"
                                     className="form-control"
+                                    value={filter.agricultureNCPlus}
                                     onChange={(e) => {
                                         handleAgricultureNCPlus(e);
                                     }}
@@ -208,6 +231,7 @@ export default function SimpleTable() {
                                     id="fagricultureNC"
                                     name="fagricultureNC"
                                     className="form-control"
+                                    value={filter.agricultureNC}
                                     onChange={(e) => {
                                         handleAgricultureNC(e);
                                     }}
@@ -219,6 +243,7 @@ export default function SimpleTable() {
                                     id="fmanufacturingAndEnergyProductionNCPlus"
                                     name="fmanufacturingAndEnergyProductionNCPlus"
                                     className="form-control"
+                                    value={filter.manufacturingAndEnergyProductionNCPlus}
                                     onChange={(e) => {
                                         handleManufacturingAndEnergyProductionNCPlus(e);
                                     }}
@@ -230,6 +255,7 @@ export default function SimpleTable() {
                                     id="fmanufacturingAndEnergyProductionNC"
                                     name="fmanufacturingAndEnergyProductionNC"
                                     className="form-control"
+                                    value={filter.manufacturingAndEnergyProductionNC}
                                     onChange={(e) => {
                                         handleManufacturingAndEnergyProductionNC(e);
                                     }}
@@ -241,6 +267,7 @@ export default function SimpleTable() {
                                     id="fconstructionNCPlus"
                                     name="fconstructionNCPlus"
                                     className="form-control"
+                                    value={filter.constructionNCPlus}
                                     onChange={(e) => {
                                         handleConstructionNCPlus(e);
                                     }}
@@ -252,6 +279,7 @@ export default function SimpleTable() {
                                     id="fconstructionNC"
                                     name="fconstructionNC"
                                     className="form-control"
+                                    value={filter.constructionNC}
                                     onChange={(e) => {
                                         handleConstructionNC(e);
                                     }}
@@ -263,6 +291,7 @@ export default function SimpleTable() {
                                     id="ftransportNCPlus"
                                     name="ftransportNCPlus"
                                     className="form-control"
+                                    value={filter.transportNCPlus}
                                     onChange={(e) => {
                                         handleTransportNCPlus(e);
                                     }}
@@ -274,6 +303,7 @@ export default function SimpleTable() {
                                     id="ftransportNC"
                                     name="ftransportNC"
                                     className="form-control"
+                                    value={filter.transportNC}
                                     onChange={(e) => {
                                         handleTransportNC(e);
                                     }}
@@ -285,6 +315,7 @@ export default function SimpleTable() {
                                     id="fwasteManagementNCPlus"
                                     name="fwasteManagementNCPlus"
                                     className="form-control"
+                                    value={filter.wasteManagementNCPlus}
                                     onChange={(e) => {
                                         handleWasteManagementNCPlus(e);
                                     }}
@@ -296,6 +327,7 @@ export default function SimpleTable() {
                                     id="fwasteManagementNC"
                                     name="fwasteManagementNC"
                                     className="form-control"
+                                    value={filter.wasteManagementNC}
                                     onChange={(e) => {
                                         handleWasteManagementNC(e);
                                     }}
@@ -307,6 +339,7 @@ export default function SimpleTable() {
                                     id="fotherTertiaryAndHouseholdsNCPlus"
                                     name="fotherTertiaryAndHouseholdsNCPlus"
                                     className="form-control"
+                                    value={filter.otherTertiaryAndHouseholdsNCPlus}
                                     onChange={(e) => {
                                         handleOtherTertiaryAndHouseholdsNCPlus(e);
                                     }}
@@ -318,6 +351,7 @@ export default function SimpleTable() {
                                     id="fotherTertiaryAndHouseholdsNC"
                                     name="fotherTertiaryAndHouseholdsNC"
                                     className="form-control"
+                                    value={filter.otherTertiaryAndHouseholdsNC}
                                     onChange={(e) => {
                                         handleOtherTertiaryAndHouseholdsNC(e);
                                     }}
@@ -328,8 +362,8 @@ export default function SimpleTable() {
 
                         {createRows(filteredRows())}
                     </tbody>
-                </table>
-            </div>
+                </table>                
+            </div>            
         </div>
 
     )
